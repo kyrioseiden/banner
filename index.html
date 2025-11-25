@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kyriose Eiden Technologies - Drone solutions with AI video analytics for solar, wind energy, and mining industries">
+    <title>Kyriose Eiden Technologies | Intelligence from Above, Innovation Beyond</title>
+    <style>
+:root {
+  /* Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  /* RGB versions for opacity control */
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+
+  /* Background color tokens (Light Mode) */
+  --color-bg-1: rgba(59, 130, 246, 0.08);
+  --color-bg-2: rgba(245, 158, 11, 0.08);
+  --color-bg-3: rgba(34, 197, 94, 0.08);
+  --color-bg-4: rgba(239, 68, 68, 0.08);
+  --color-bg-5: rgba(147, 51, 234, 0.08);
+  --color-bg-6: rgba(249, 115, 22, 0.08);
+  --color-bg-7: rgba(236, 72, 153, 0.08);
+  --color-bg-8: rgba(6, 182, 212, 0.08);
+
+  /* Semantic Color Tokens (Light Mode) */
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+  /* Common style patterns */
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+
+  /* Typography */
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  /* Spacing */
+  --space-0: 0;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+  /* Animation */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gray-400-rgb: 119, 124, 124;
+    --color-teal-300-rgb: 50, 184, 198;
+    --color-gray-300-rgb: 167, 169, 169;
+    --color-gray-200-rgb: 245, 245, 245;
+    --color-bg-1: rgba(29, 78, 216, 0.15);
+    --color-bg-2: rgba(180, 83, 9, 0.15);
+    --color-bg-3: rgba(21, 128, 61, 0.15);
+    --color-bg-4: rgba(185, 28, 28, 0.15);
+    --color-bg-5: rgba(107, 33, 168, 0.15);
+    --color-bg-6: rgba(194, 65, 12, 0.15);
+    --color-bg-7: rgba(190, 24, 93, 0.15);
+    --color-bg-8: rgba(8, 145, 178, 0.15);
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+    --color-primary: var(--color-teal-300);
+    --color-primary-hover: var(--color-teal-400);
+    --color-primary-active: var(--color-teal-800);
+    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-error: var(--color-red-400);
+    --color-success: var(--color-teal-300);
+    --color-warning: var(--color-orange-400);
+    --color-info: var(--color-gray-300);
+    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+    --color-btn-primary-text: var(--color-slate-900);
+    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+  }
+}
+
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-card-border);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.header.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.header-container {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: var(--space-16) var(--space-24);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  text-decoration: none;
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.logo span {
+  color: var(--color-primary);
+}
+
+.nav-menu {
+  display: flex;
+  gap: var(--space-32);
+  list-style: none;
+}
+
+.nav-menu a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: color var(--duration-fast) var(--ease-standard);
+  font-size: var(--font-size-base);
+}
+
+.nav-menu a:hover {
+  color: var(--color-primary);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: var(--font-size-3xl);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, rgba(var(--color-slate-900-rgb), 0.95) 0%, rgba(var(--color-teal-500-rgb), 0.85) 100%);
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--space-32);
+  margin-top: 70px;
+}
+
+.hero-content {
+  max-width: 900px;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-16);
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: var(--line-height-tight);
+}
+
+.hero .subtitle {
+  font-size: clamp(18px, 2.5vw, 28px);
+  margin-bottom: var(--space-24);
+  font-weight: var(--font-weight-medium);
+  opacity: 0.95;
+}
+
+.hero .intro-text {
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  margin-bottom: var(--space-32);
+  opacity: 0.9;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: var(--space-16) var(--space-32);
+  background-color: var(--color-primary);
+  color: var(--color-btn-primary-text);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-base);
+  transition: all var(--duration-normal) var(--ease-standard);
+  font-size: var(--font-size-lg);
+}
+
+.hero-cta:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Section Styles */
+.section {
+  padding: 80px var(--space-24);
+}
+
+.section-container {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-16);
+  color: var(--color-text);
+}
+
+.section-header p {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* About Section */
+.about-section {
+  background-color: var(--color-surface);
+}
+
+.about-content {
+  margin-bottom: 60px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-content p {
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-16);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-24);
+}
+
+.value-card {
+  background-color: var(--color-background);
+  padding: var(--space-24);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.value-icon {
+  font-size: 40px;
+  margin-bottom: var(--space-16);
+}
+
+.value-card h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-8);
+  color: var(--color-text);
+}
+
+.value-card p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+}
+
+/* Solutions Section */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-32);
+}
+
+.solution-card {
+  background-color: var(--color-surface);
+  padding: var(--space-32);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.solution-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.solution-icon {
+  font-size: 48px;
+  margin-bottom: var(--space-16);
+}
+
+.solution-card h3 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-16);
+  color: var(--color-text);
+}
+
+.solution-card ul {
+  list-style: none;
+  margin-bottom: var(--space-24);
+}
+
+.solution-card li {
+  padding: var(--space-8) 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  display: flex;
+  align-items: start;
+}
+
+.solution-card li::before {
+  content: "✓";
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  margin-right: var(--space-8);
+  flex-shrink: 0;
+}
+
+.solution-btn {
+  display: inline-block;
+  padding: var(--space-10) var(--space-20);
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: var(--radius-base);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.solution-btn:hover {
+  background-color: var(--color-secondary-hover);
+}
+
+/* Technology Section */
+.tech-section {
+  background-color: var(--color-surface);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-24);
+}
+
+.tech-card {
+  background-color: var(--color-background);
+  padding: var(--space-24);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.tech-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.tech-icon {
+  font-size: 36px;
+  margin-bottom: var(--space-12);
+}
+
+.tech-card h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-8);
+  color: var(--color-text);
+}
+
+.tech-card p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+}
+
+/* Lifecycle Section */
+.lifecycle-section {
+  background: linear-gradient(135deg, rgba(var(--color-teal-500-rgb), 0.05) 0%, rgba(var(--color-slate-900-rgb), 0.05) 100%);
+}
+
+.lifecycle-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-32);
+  position: relative;
+}
+
+.lifecycle-phase {
+  background-color: var(--color-surface);
+  padding: var(--space-32);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  position: relative;
+}
+
+.phase-number {
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-primary);
+  color: var(--color-btn-primary-text);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-16);
+}
+
+.lifecycle-phase h3 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-16);
+  color: var(--color-text);
+}
+
+.lifecycle-phase ul {
+  list-style: none;
+}
+
+.lifecycle-phase li {
+  padding: var(--space-8) 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  display: flex;
+  align-items: start;
+}
+
+.lifecycle-phase li::before {
+  content: "→";
+  color: var(--color-primary);
+  margin-right: var(--space-8);
+  flex-shrink: 0;
+}
+
+/* Benefits Section */
+.benefits-section {
+  background-color: var(--color-surface);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-24);
+}
+
+.benefit-card {
+  background-color: var(--color-background);
+  padding: var(--space-24);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  text-align: center;
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.benefit-icon {
+  font-size: 48px;
+  margin-bottom: var(--space-16);
+}
+
+.benefit-card h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-8);
+  color: var(--color-text);
+}
+
+.benefit-card p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+}
+
+/* Projects Section */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-32);
+}
+
+.project-card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.project-header {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal-700) 100%);
+  padding: var(--space-24);
+  color: var(--color-white);
+}
+
+.project-industry {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-bottom: var(--space-8);
+}
+
+.project-header h3 {
+  font-size: var(--font-size-xl);
+  color: var(--color-white);
+}
+
+.project-body {
+  padding: var(--space-24);
+}
+
+.project-body p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-16);
+  font-size: var(--font-size-base);
+}
+
+.project-metrics {
+  background-color: var(--color-bg-1);
+  padding: var(--space-12);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  margin-bottom: var(--space-16);
+}
+
+.project-btn {
+  display: inline-block;
+  padding: var(--space-8) var(--space-16);
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: var(--radius-base);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.project-btn:hover {
+  background-color: var(--color-secondary-hover);
+}
+
+/* Contact Section */
+.contact-section {
+  background-color: var(--color-surface);
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 60px;
+}
+
+.contact-form {
+  background-color: var(--color-background);
+  padding: var(--space-32);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+}
+
+.form-group {
+  margin-bottom: var(--space-20);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-8);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: var(--space-12);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--focus-ring);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: var(--space-12) var(--space-24);
+  background-color: var(--color-primary);
+  color: var(--color-btn-primary-text);
+  border: none;
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.submit-btn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.submit-btn:active {
+  background-color: var(--color-primary-active);
+}
+
+.contact-info {
+  background-color: var(--color-background);
+  padding: var(--space-32);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+}
+
+.contact-info h3 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-24);
+  color: var(--color-text);
+}
+
+.info-item {
+  margin-bottom: var(--space-20);
+}
+
+.info-item h4 {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  margin-bottom: var(--space-8);
+}
+
+.info-item p {
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+.info-item a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.info-item a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--color-charcoal-800);
+  color: var(--color-gray-200);
+  padding: 60px var(--space-24) var(--space-32);
+}
+
+.footer-content {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-32);
+  margin-bottom: var(--space-32);
+}
+
+.footer-column h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-16);
+  color: var(--color-white);
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column li {
+  margin-bottom: var(--space-8);
+}
+
+.footer-column a {
+  color: var(--color-gray-300);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.footer-column a:hover {
+  color: var(--color-teal-300);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(var(--color-gray-400-rgb), 0.3);
+  padding-top: var(--space-24);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-16);
+}
+
+.footer-bottom p {
+  color: var(--color-gray-300);
+  font-size: var(--font-size-sm);
+}
+
+.footer-tagline {
+  color: var(--color-teal-300);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+}
+
+/* Form Message */
+.form-message {
+  padding: var(--space-12);
+  border-radius: var(--radius-base);
+  margin-bottom: var(--space-16);
+  font-size: var(--font-size-base);
+  display: none;
+}
+
+.form-message.success {
+  background-color: rgba(var(--color-success-rgb), 0.15);
+  color: var(--color-success);
+  border: 1px solid rgba(var(--color-success-rgb), 0.25);
+  display: block;
+}
+
+.form-message.error {
+  background-color: rgba(var(--color-error-rgb), 0.15);
+  color: var(--color-error);
+  border: 1px solid rgba(var(--color-error-rgb), 0.25);
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-surface);
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid var(--color-card-border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu li {
+    border-bottom: 1px solid var(--color-card-border);
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: var(--space-16) var(--space-24);
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .section {
+    padding: 60px var(--space-16);
+  }
+
+  .section-header h2 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .solutions-grid,
+  .tech-grid,
+  .benefits-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lifecycle-timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-32);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Scroll animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease-standard), transform 0.6s var(--ease-standard);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#home" class="logo">Kyriose <span>Eiden</span></a>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Intelligence from Above, Innovation Beyond</h1>
+            <p class="subtitle">Where Artificial Intelligence Meets Aerial Excellence</p>
+            <p class="intro-text">
+                At Kyriose Eiden Technologies, we deliver cutting-edge drone solutions integrated with advanced AI video analytics to empower solar, wind energy, and mining industries.
+            </p>
+            <a href="#solutions" class="hero-cta">Explore Our Solutions</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="section about-section" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>About Kyriose Eiden Technologies</h2>
+            </div>
+            <div class="about-content">
+                <p>
+                    Kyriose Eiden Technologies is at the forefront of drone innovation and AI-powered video analytics, serving the critical needs of solar, wind energy, and mining industries. Our mission is to enhance operational efficiency, maximize safety, reduce costs, and drive sustainability through real-time aerial intelligence and predictive insights.
+                </p>
+                <p>
+                    Strategically located in Tirunelveli, Tamil Nadu—the hotspot of renewable energy sites in India—we are uniquely positioned to serve the rapidly growing renewable energy sector. Our proximity to major solar and wind installations allows us to deliver rapid response times and intimate understanding of local operational challenges.
+                </p>
+                <p>
+                    With a commitment to innovation, safety, and sustainability, we combine cutting-edge technology with industry expertise to transform how organizations monitor, maintain, and optimize their critical assets.
+                </p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card fade-in">
+                    <div class="value-icon">💡</div>
+                    <h3>Innovation &amp; Technology</h3>
+                    <p>Cutting-edge AI and drone solutions that push the boundaries of what's possible in aerial intelligence.</p>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon">🛡️</div>
+                    <h3>Safety First</h3>
+                    <p>Eliminating human risk in dangerous environments through autonomous operations and remote monitoring.</p>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon">🌱</div>
+                    <h3>Sustainability Focus</h3>
+                    <p>Supporting renewable energy and responsible mining practices for a sustainable future.</p>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon">👥</div>
+                    <h3>Expert Team</h3>
+                    <p>Experienced professionals in AI, robotics, and industry domains working to solve complex challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="section" id="solutions">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Our Solutions</h2>
+                <p>Transforming Industries Through Aerial Intelligence</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">☀️</div>
+                    <h3>Solar Farm Intelligence</h3>
+                    <ul>
+                        <li>Automated panel inspections with thermal imaging</li>
+                        <li>Defect detection and hotspot identification</li>
+                        <li>Performance optimization analytics</li>
+                        <li>Site planning and progress monitoring</li>
+                        <li>Vegetation management insights</li>
+                    </ul>
+                    <a href="#contact" class="solution-btn">Learn More</a>
+                </div>
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">💨</div>
+                    <h3>Wind Turbine Monitoring</h3>
+                    <ul>
+                        <li>Blade inspection and damage assessment</li>
+                        <li>Structural integrity analysis</li>
+                        <li>Predictive maintenance insights</li>
+                        <li>Tower and foundation surveys</li>
+                        <li>Environmental impact assessment</li>
+                    </ul>
+                    <a href="#contact" class="solution-btn">Learn More</a>
+                </div>
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">⛏️</div>
+                    <h3>Mining Operations Intelligence</h3>
+                    <ul>
+                        <li>Volumetric measurements and stockpile analysis</li>
+                        <li>Safety compliance monitoring</li>
+                        <li>Terrain mapping and site surveying</li>
+                        <li>Haul road condition assessment</li>
+                        <li>Environmental monitoring</li>
+                    </ul>
+                    <a href="#contact" class="solution-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="section tech-section" id="technology">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Our Technology Capabilities</h2>
+                <p>Advanced AI-Powered Drone Solutions</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">🚁</div>
+                    <h3>Autonomous Drone Operations</h3>
+                    <p>Automated flight paths and data capture for efficient operations</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">🤖</div>
+                    <h3>AI Video Analytics</h3>
+                    <p>Real-time object detection and anomaly identification</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">👁️</div>
+                    <h3>Computer Vision</h3>
+                    <p>Advanced image processing and defect recognition</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">📊</div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Machine learning for maintenance forecasting</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">🗺️</div>
+                    <h3>3D Mapping &amp; Modeling</h3>
+                    <p>High-resolution orthomosaics and digital twins</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">📈</div>
+                    <h3>Real-Time Reporting</h3>
+                    <p>Instant insights and actionable data</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifecycle Section -->
+    <section class="section lifecycle-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Full Asset Lifecycle Support</h2>
+                <p>From Planning to Maintenance</p>
+            </div>
+            <div class="lifecycle-timeline">
+                <div class="lifecycle-phase fade-in">
+                    <div class="phase-number">1</div>
+                    <h3>Pre-Construction</h3>
+                    <ul>
+                        <li>Site surveys and terrain analysis</li>
+                        <li>Environmental assessments</li>
+                        <li>Planning optimization</li>
+                    </ul>
+                </div>
+                <div class="lifecycle-phase fade-in">
+                    <div class="phase-number">2</div>
+                    <h3>Construction</h3>
+                    <ul>
+                        <li>Progress monitoring</li>
+                        <li>Quality assurance inspections</li>
+                        <li>Documentation and reporting</li>
+                    </ul>
+                </div>
+                <div class="lifecycle-phase fade-in">
+                    <div class="phase-number">3</div>
+                    <h3>Operations &amp; Maintenance</h3>
+                    <ul>
+                        <li>Regular inspections</li>
+                        <li>Defect detection</li>
+                        <li>Performance analytics</li>
+                        <li>Predictive maintenance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Why Choose Kyriose Eiden Technologies</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Enhanced Safety</h3>
+                    <p>Eliminate human risk in dangerous inspections</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Cost Efficiency</h3>
+                    <p>Reduce inspection costs by up to 70%</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Faster Insights</h3>
+                    <p>Real-time data collection and analysis</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Improved Accuracy</h3>
+                    <p>AI-powered precision in defect detection</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Scalability</h3>
+                    <p>Handle multiple sites simultaneously</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">✅</div>
+                    <h3>Compliance Ready</h3>
+                    <p>Detailed documentation and reporting</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Our Projects</h2>
+                <p>Delivering Results Across Industries</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-industry">Solar Energy</div>
+                        <h3>Large-Scale Solar Farm Inspection</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Automated thermal inspection of 500+ acre solar installation</p>
+                        <div class="project-metrics">📊 95% defect detection accuracy, 80% time savings</div>
+                        <a href="#contact" class="project-btn">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-industry">Wind Energy</div>
+                        <h3>Offshore Wind Farm Monitoring</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Comprehensive blade and structural integrity assessment</p>
+                        <div class="project-metrics">📊 50+ turbines inspected, zero safety incidents</div>
+                        <a href="#contact" class="project-btn">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-industry">Mining</div>
+                        <h3>Open-Pit Mine Survey</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Volumetric analysis and safety compliance monitoring</p>
+                        <div class="project-metrics">📊 1000+ acre coverage, 99% measurement accuracy</div>
+                        <a href="#contact" class="project-btn">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-industry">Multi-Industry</div>
+                        <h3>Renewable Energy Hub Planning</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Pre-construction site analysis for hybrid energy facility</p>
+                        <div class="project-metrics">📊 2-week project completion, comprehensive 3D modeling</div>
+                        <a href="#contact" class="project-btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Ready to elevate your operations?</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <div class="form-message" id="formMessage"></div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="industry">Industry *</label>
+                            <select id="industry" name="industry" required>
+                                <option value="">Select an industry</option>
+                                <option value="solar">Solar Energy</option>
+                                <option value="wind">Wind Energy</option>
+                                <option value="mining">Mining</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <h4>Company</h4>
+                        <p>Kyriose Eiden Technologies Pvt Ltd</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Address</h4>
+                        <p>Tirunelveli Main, Reddiarpatti<br>TN 627007, India</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Phone</h4>
+                        <p><a href="tel:+918300506005">+91-8300506005</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Email</h4>
+                        <p><a href="mailto:info@kyrioseeiden.com">info@kyrioseeiden.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Solutions</h3>
+                    <ul>
+                        <li><a href="#solutions">Solar Energy</a></li>
+                        <li><a href="#solutions">Wind Energy</a></li>
+                        <li><a href="#solutions">Mining</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#technology">Technology</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="tel:+918300506005">+91-8300506005</a></li>
+                        <li><a href="mailto:info@kyrioseeiden.com">Email Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kyriose Eiden Technologies Pvt Ltd. All rights reserved.</p>
+                <p class="footer-tagline">Intelligence from Above, Innovation Beyond</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get form values
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                industry: document.getElementById('industry').value,
+                message: document.getElementById('message').value
+            };
+
+            // Basic validation
+            if (!formData.name || !formData.email || !formData.industry || !formData.message) {
+                showFormMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                showFormMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            // Simulate form submission (in production, this would send to a server)
+            showFormMessage('Thank you for your message! We will get back to you soon.', 'success');
+            contactForm.reset();
+
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+                formMessage.className = 'form-message';
+            }, 5000);
+        });
+
+        function showFormMessage(message, type) {
+            formMessage.textContent = message;
+            formMessage.className = `form-message ${type}`;
+            formMessage.style.display = 'block';
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
