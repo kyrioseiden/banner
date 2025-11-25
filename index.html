@@ -6,45 +6,1221 @@
     <meta name="description" content="Kyriose Eiden Technologies - Drone solutions with AI video analytics for solar, wind energy, and mining industries">
     <title>Kyriose Eiden Technologies | Intelligence from Above, Innovation Beyond</title>
     <style>
-:root {
-  /* Primitive Color Tokens */
-  --color-white: rgba(255, 255, 255, 1);
-  --color-black: rgba(0, 0, 0, 1);
-  --color-cream-50: rgba(252, 252, 249, 1);
-  --color-cream-100: rgba(255, 255, 253, 1);
-  --color-gray-200: rgba(245, 245, 245, 1);
-  --color-gray-300: rgba(167, 169, 169, 1);
-  --color-gray-400: rgba(119, 124, 124, 1);
-  --color-slate-500: rgba(98, 108, 113, 1);
-  --color-brown-600: rgba(94, 82, 64, 1);
-  --color-charcoal-700: rgba(31, 33, 33, 1);
-  --color-charcoal-800: rgba(38, 40, 40, 1);
-  --color-slate-900: rgba(19, 52, 59, 1);
-  --color-teal-300: rgba(50, 184, 198, 1);
-  --color-teal-400: rgba(45, 166, 178, 1);
-  --color-teal-500: rgba(33, 128, 141, 1);
-  --color-teal-600: rgba(29, 116, 128, 1);
-  --color-teal-700: rgba(26, 104, 115, 1);
-  --color-teal-800: rgba(41, 150, 161, 1);
-  --color-red-400: rgba(255, 84, 89, 1);
-  --color-red-500: rgba(192, 21, 47, 1);
-  --color-orange-400: rgba(230, 129, 97, 1);
-  --color-orange-500: rgba(168, 75, 47, 1);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  /* RGB versions for opacity control */
-  --color-brown-600-rgb: 94, 82, 64;
-  --color-teal-500-rgb: 33, 128, 141;
-  --color-slate-900-rgb: 19, 52, 59;
-  --color-slate-500-rgb: 98, 108, 113;
-  --color-red-500-rgb: 192, 21, 47;
-  --color-red-400-rgb: 255, 84, 89;
-  --color-orange-500-rgb: 168, 75, 47;
-  --color-orange-400-rgb: 230, 129, 97;
+        :root {
+            --color-primary: #21808D;
+            --color-primary-dark: #1D7480;
+            --color-dark: #1a202c;
+            --color-darker: #171923;
+            --color-light: #f7fafc;
+            --color-gray: #718096;
+            --color-gray-light: #e2e8f0;
+            --color-white: #ffffff;
+        }
 
-  /* Background color tokens (Light Mode) */
-  --color-bg-1: rgba(59, 130, 246, 0.08);
-  --color-bg-2: rgba(245, 158, 11, 0.08);
-  --color-bg-3: rgba(34, 197, 94, 0.08);
-  --color-bg-4: rgba(239, 68, 68, 0.08);
-  --color-bg-5: rgba(147, 51, 234, 0.08);
-  --color-bg-6: rgb
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+            line-height: 1.6;
+            color: var(--color-dark);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--color-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: var(--color-white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--color-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-primary);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            color: var(--color-white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(33, 128, 141, 0.3);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--color-dark);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--color-gray);
+            margin-bottom: 3rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--color-light);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .value-card h3 {
+            margin: 1rem 0 0.5rem;
+            color: var(--color-primary);
+        }
+
+        /* Solutions Section */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .solution-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .solution-content {
+            padding: 2rem;
+        }
+
+        .solution-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .solution-content ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .solution-content li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .solution-content li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+
+        .reports-section {
+            background: var(--color-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .reports-section h4 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .reports-section p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+
+        .roi-highlight {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        /* Technology Section */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-card {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Lifecycle Section */
+        .lifecycle {
+            background: var(--color-light);
+        }
+
+        .lifecycle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .lifecycle-phase {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .lifecycle-phase h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .lifecycle-phase ul {
+            list-style: none;
+        }
+
+        .lifecycle-phase li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .lifecycle-phase li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .benefit-card h3 {
+            color: var(--color-primary);
+            margin: 1rem 0 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--color-light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-dark);
+            margin-bottom: 1rem;
+        }
+
+        .project-details {
+            background: var(--color-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .project-details h4 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-details ul {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .project-details li {
+            padding: 0.3rem 0;
+            font-size: 0.95rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .comparison-item {
+            background: var(--color-white);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--color-primary);
+        }
+
+        .comparison-item strong {
+            color: var(--color-primary);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--color-gray-light);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-button:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h3 {
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-dark);
+        }
+
+        .contact-item a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-darker);
+            color: var(--color-white);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column a {
+            color: var(--color-white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-column a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        .footer-tagline {
+            margin-top: 0.5rem;
+            color: var(--color-primary);
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--color-white);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.25rem;
+            }
+
+            .solutions-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Kyriose Eiden Technologies</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Intelligence from Above, Innovation Beyond</h1>
+        <h2>Where Artificial Intelligence Meets Aerial Excellence</h2>
+        <p>Cutting-edge drone solutions integrated with advanced AI video analytics to empower solar, wind energy, and mining industries</p>
+        <a href="#solutions" class="cta-button">Explore Our Solutions</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Kyriose Eiden Technologies</h2>
+            <div class="about-content">
+                <p>At Kyriose Eiden Technologies, we deliver cutting-edge drone solutions integrated with advanced AI video analytics to empower solar, wind energy, and mining industries. Our mission is to enhance operational efficiency, maximize safety, reduce costs, and drive sustainability through real-time aerial intelligence and predictive insights.</p>
+                <p><strong>Headquartered in Tirunelveli, Tamil Nadu</strong> - strategically located at the heart of India's renewable energy corridor, providing us direct access to major solar and wind farm installations.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div style="font-size: 3rem;">💡</div>
+                    <h3>Innovation & Technology</h3>
+                    <p>Cutting-edge AI and drone solutions</p>
+                </div>
+                <div class="value-card">
+                    <div style="font-size: 3rem;">🛡️</div>
+                    <h3>Safety First Approach</h3>
+                    <p>Eliminating human risk in dangerous environments</p>
+                </div>
+                <div class="value-card">
+                    <div style="font-size: 3rem;">🌱</div>
+                    <h3>Sustainability Focus</h3>
+                    <p>Supporting renewable energy and responsible mining</p>
+                </div>
+                <div class="value-card">
+                    <div style="font-size: 3rem;">👥</div>
+                    <h3>Expert Team</h3>
+                    <p>Experienced professionals in AI, robotics, and industry domains</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <h2>Our Solutions</h2>
+            <p class="subtitle">Transforming Industries Through Aerial Intelligence</p>
+            <div class="solutions-grid">
+                <!-- Solar Solution -->
+                <div class="solution-card">
+                    <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/5a4f4b05-7a88-4cbe-8899-26025d549b2f.png" alt="Solar Thermal Imaging" class="solution-image">
+                    <div class="solution-content">
+                        <h3>Solar Farm Intelligence</h3>
+                        <ul>
+                            <li>Automated panel inspections with thermal imaging</li>
+                            <li>Defect detection and hotspot identification</li>
+                            <li>Performance optimization analytics</li>
+                            <li>Site planning and progress monitoring</li>
+                            <li>Vegetation management insights</li>
+                        </ul>
+                        <div class="reports-section">
+                            <h4>Generated Reports & Value</h4>
+                            <p>• Thermal Anomaly Detection Report - Identifies defective panels with 98% accuracy</p>
+                            <p>• Performance Analytics Dashboard - Tracks energy output and efficiency metrics</p>
+                            <p>• Vegetation Encroachment Maps - Reduces shading losses by up to 15%</p>
+                            <div class="roi-highlight">
+                                <p>ROI Impact: 25-30% reduction in inspection costs, 40% faster defect identification</p>
+                                <p>Value: Detect issues 10x faster, prevent 5-8% annual energy losses</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wind Solution -->
+                <div class="solution-card">
+                    <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/26f989f5-e668-4e50-93e8-d4d31dd1316e.png" alt="Wind Turbine Blade Inspection" class="solution-image">
+                    <div class="solution-content">
+                        <h3>Onshore &amp; Offshore Wind Farm Monitoring</h3>
+                        <ul>
+                            <li>Blade inspection and damage assessment</li>
+                            <li>Structural integrity analysis</li>
+                            <li>Predictive maintenance insights</li>
+                            <li>Tower and foundation surveys</li>
+                            <li>Environmental impact assessment</li>
+                        </ul>
+                        <div class="reports-section">
+                            <h4>Generated Reports & Value</h4>
+                            <p>• Blade Surface Condition Report - Documents cracks, erosion, lightning strikes with millimeter precision</p>
+                            <p>• Structural Health Monitoring - Identifies tower misalignment and foundation issues</p>
+                            <p>• Predictive Maintenance Schedule - AI-driven forecasting reduces unplanned downtime by 35%</p>
+                            <div class="roi-highlight">
+                                <p>ROI Impact: 60-70% cost reduction vs rope access inspections, 50% less downtime</p>
+                                <p>Value: Inspect 20+ turbines per day vs 1-2 manually, extend blade life by 15-20%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mining Solution -->
+                <div class="solution-card">
+                    <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/25739a39-e57f-44ee-acdc-796b3c9273d1.png" alt="Mining Terrain Mapping" class="solution-image">
+                    <div class="solution-content">
+                        <h3>Mining Operations Intelligence</h3>
+                        <ul>
+                            <li>Volumetric measurements and stockpile analysis</li>
+                            <li>Safety compliance monitoring</li>
+                            <li>Terrain mapping and site surveying</li>
+                            <li>Haul road condition assessment</li>
+                            <li>Environmental monitoring</li>
+                        </ul>
+                        <div class="reports-section">
+                            <h4>Generated Reports & Value</h4>
+                            <p>• Stockpile Volume Reports - Accurate to ±1-2% using photogrammetry vs ±10-15% manual surveys</p>
+                            <p>• Mine Site Progress Maps - High-resolution orthomosaics for planning and compliance</p>
+                            <p>• Safety Hazard Identification - AI detects slope instability, water accumulation, unauthorized access</p>
+                            <div class="roi-highlight">
+                                <p>ROI Impact: 80% faster surveys, 90% reduction in surveyor exposure to hazards</p>
+                                <p>Value: Survey 500+ hectares in hours vs weeks, ±2cm elevation accuracy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology" id="technology">
+        <div class="container">
+            <h2>Our Technology Capabilities</h2>
+            <p class="subtitle">Advanced AI-Powered Drone Solutions</p>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">🚁</div>
+                    <h3>Autonomous Drone Operations</h3>
+                    <p>Automated flight paths and data capture</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🤖</div>
+                    <h3>AI Video Analytics</h3>
+                    <p>Real-time object detection and anomaly identification</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🔍</div>
+                    <h3>Computer Vision</h3>
+                    <p>Advanced image processing and defect recognition</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">📊</div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Machine learning for maintenance forecasting</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🗺️</div>
+                    <h3>3D Mapping &amp; Modeling</h3>
+                    <p>High-resolution orthomosaics and digital twins</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">📈</div>
+                    <h3>Real-Time Reporting</h3>
+                    <p>Instant insights and actionable data</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifecycle Section -->
+    <section class="lifecycle">
+        <div class="container">
+            <h2>Full Asset Lifecycle Support</h2>
+            <p class="subtitle">From Planning to Maintenance</p>
+            <div class="lifecycle-grid">
+                <div class="lifecycle-phase">
+                    <h3>Pre-Construction</h3>
+                    <ul>
+                        <li>Site surveys and terrain analysis</li>
+                        <li>Environmental assessments</li>
+                        <li>Planning optimization</li>
+                    </ul>
+                </div>
+                <div class="lifecycle-phase">
+                    <h3>Construction</h3>
+                    <ul>
+                        <li>Progress monitoring</li>
+                        <li>Quality assurance inspections</li>
+                        <li>Documentation and reporting</li>
+                    </ul>
+                </div>
+                <div class="lifecycle-phase">
+                    <h3>Operations &amp; Maintenance</h3>
+                    <ul>
+                        <li>Regular inspections</li>
+                        <li>Defect detection</li>
+                        <li>Performance analytics</li>
+                        <li>Predictive maintenance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2>Why Choose Kyriose Eiden Technologies</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div style="font-size: 3rem;">🛡️</div>
+                    <h3>Enhanced Safety</h3>
+                    <p>Eliminate human risk in dangerous inspections</p>
+                </div>
+                <div class="benefit-card">
+                    <div style="font-size: 3rem;">💰</div>
+                    <h3>Cost Efficiency</h3>
+                    <p>Reduce inspection costs by up to 70%</p>
+                </div>
+                <div class="benefit-card">
+                    <div style="font-size: 3rem;">⚡</div>
+                    <h3>Faster Insights</h3>
+                    <p>Real-time data collection and analysis</p>
+                </div>
+                <div class="benefit-card">
+                    <div style="font-size: 3rem;">🎯</div>
+                    <h3>Improved Accuracy</h3>
+                    <p>AI-powered precision in defect detection</p>
+                </div>
+                <div class="benefit-card">
+                    <div style="font-size: 3rem;">📈</div>
+                    <h3>Scalability</h3>
+                    <p>Handle multiple sites simultaneously</p>
+                </div>
+                <div class="benefit-card">
+                    <div style="font-size: 3rem;">✅</div>
+                    <h3>Compliance Ready</h3>
+                    <p>Detailed documentation and reporting</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2>Our Projects</h2>
+            <p class="subtitle">Delivering Results Across Industries</p>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <span class="project-badge">Solar Energy</span>
+                    <h3>Large-Scale Solar Farm Inspection</h3>
+                    <p>Automated thermal inspection of 500+ acre solar installation in Rajasthan</p>
+                    <div class="project-details">
+                        <h4>Generated Reports</h4>
+                        <ul>
+                            <li>• Thermal Anomaly Maps - 2,847 defective panels identified</li>
+                            <li>• Performance Loss Analysis - Projected annual revenue recovery of ₹1.2 Cr</li>
+                            <li>• Panel-Level Defect Database - Every panel GPS-tagged and categorized</li>
+                            <li>• Vegetation Overgrowth Report - 12% area affected, prioritized remediation zones</li>
+                        </ul>
+                        <h4>Quantitative Value vs Competitors</h4>
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <strong>Speed:</strong> 3 days vs 6 weeks manual (14x faster)
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Cost:</strong> ₹18L vs ₹65L traditional (72% reduction)
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Accuracy:</strong> 98% vs 60-70% visual inspection
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Safety:</strong> Zero exposure vs 120+ man-hours at height
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Revenue Impact:</strong> Prevented 5.8% annual energy loss
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <span class="project-badge">Wind Energy</span>
+                    <h3>Offshore Wind Farm Monitoring</h3>
+                    <p>Comprehensive blade and structural integrity assessment of 50-turbine offshore wind farm</p>
+                    <div class="project-details">
+                        <h4>Generated Reports</h4>
+                        <ul>
+                            <li>• Blade Surface Condition Atlas - 150 blades inspected, 342 defects documented</li>
+                            <li>• Structural Integrity Assessment - Tower alignment, foundation stability analysis</li>
+                            <li>• Predictive Maintenance Schedule - AI-prioritized repair timeline reducing downtime 35%</li>
+                            <li>• Lightning Strike Damage Inventory - 23 strike locations mapped with repair urgency</li>
+                        </ul>
+                        <h4>Quantitative Value vs Competitors</h4>
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <strong>Speed:</strong> 5 days vs 25-30 days rope access (6x faster)
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Cost:</strong> ₹45L vs ₹1.8Cr rope access (75% reduction)
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Safety:</strong> Zero offshore risk vs high-risk rope operations
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Accuracy:</strong> Millimeter-level crack detection
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Downtime:</strong> 40% less unplanned outages
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <span class="project-badge">Mining</span>
+                    <h3>Open-Pit Mine Survey</h3>
+                    <p>Volumetric analysis and safety compliance monitoring of 1000+ acre limestone mine</p>
+                    <div class="project-details">
+                        <h4>Generated Reports</h4>
+                        <ul>
+                            <li>• Stockpile Volume Inventory - 47 stockpiles measured, ±1.5% accuracy, total 2.3M m³</li>
+                            <li>• Mine Progress Maps - Monthly orthomosaics tracking excavation vs plan</li>
+                            <li>• Safety Hazard Assessment - 18 slope instability zones, 7 water accumulation areas flagged</li>
+                            <li>• Haul Road Condition Report - 15 km road network graded for maintenance priority</li>
+                        </ul>
+                        <h4>Quantitative Value vs Competitors</h4>
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <strong>Speed:</strong> 2 days vs 4-6 weeks traditional (15x faster)
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Cost:</strong> ₹12L vs ₹85L ground survey (86% reduction)
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Accuracy:</strong> ±2cm vs ±10-15cm manual methods
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Safety:</strong> Zero surveyor exposure to active zones
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Inventory:</strong> ±1.5% vs ±10-15% estimation errors
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <span class="project-badge">Multi-Industry</span>
+                    <h3>Renewable Energy Hub Planning</h3>
+                    <p>Pre-construction site analysis for 300-acre hybrid solar-wind energy facility</p>
+                    <div class="project-details">
+                        <h4>Generated Reports</h4>
+                        <ul>
+                            <li>• LiDAR Terrain Model - Sub-5cm accuracy digital elevation model</li>
+                            <li>• Hydrological Analysis - Drainage patterns, flood risk zones, water accumulation areas</li>
+                            <li>• Site Characterization Report - Vegetation mapping, obstacle identification</li>
+                            <li>• Solar Panel Layout Optimization - Shading analysis, micro-topography considerations</li>
+                            <li>• Wind Turbine Placement Study - Wind flow modeling integrated with terrain data</li>
+                        </ul>
+                        <h4>Quantitative Value vs Competitors</h4>
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <strong>Timeline:</strong> 2 weeks vs 6-8 weeks (4x faster)
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Cost:</strong> ₹8L vs ₹35L survey + analysis (77% reduction)
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Optimization:</strong> 12% more efficient panel placement
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Risk Mitigation:</strong> Saved ₹45L in future drainage costs
+                            </div>
+                            <div class="comparison-item">
+                                <strong>Data Quality:</strong> 200 points/m² vs limited ground points
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="subtitle">Ready to elevate your operations?</p>
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="industry">Industry</label>
+                            <select id="industry" name="industry">
+                                <option value="">Select Industry</option>
+                                <option value="solar">Solar Energy</option>
+                                <option value="wind">Wind Energy</option>
+                                <option value="mining">Mining</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Send Message</button>
+                        <div id="formMessage" class="message"></div>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <strong>Company</strong>
+                        <p>Kyriose Eiden Technologies Pvt Ltd</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Address</strong>
+                        <p>Tirunelveli Main, Reddiarpatti<br>TN 627007, India</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Phone</strong>
+                        <p><a href="tel:+918300506005">+91-8300506005</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Email</strong>
+                        <p><a href="mailto:info@kyrioseeiden.com">info@kyrioseeiden.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="#solutions">Solar Energy</a></li>
+                    <li><a href="#solutions">Wind Energy</a></li>
+                    <li><a href="#solutions">Mining</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Kyriose Eiden Technologies Pvt Ltd. All rights reserved.</p>
+            <p class="footer-tagline">Intelligence from Above, Innovation Beyond</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById('formMessage');
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if (name && email && message) {
+                formMessage.className = 'message success';
+                formMessage.textContent = 'Thank you for your message! We will get back to you soon.';
+                formMessage.style.display = 'block';
+                
+                // Reset form
+                this.reset();
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            } else {
+                formMessage.className = 'message error';
+                formMessage.textContent = 'Please fill in all required fields.';
+                formMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
